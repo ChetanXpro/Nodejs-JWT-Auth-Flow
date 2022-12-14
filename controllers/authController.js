@@ -51,6 +51,7 @@ const login = asyncHandler(async (req, res) => {
 const refresh = asyncHandler(async (req, res) => {
   console.log("start");
   const cookies = req.cookies;
+  console.log(cookies);
 
   if (!cookies?.jwt) return res.status(401).json({ message: "Unauthorized" });
 
@@ -75,6 +76,8 @@ const refresh = asyncHandler(async (req, res) => {
         process.env.ACCESS_TOKEN_SECRET,
         { expiresIn: "10s" }
       );
+
+      res.status(200).json({ accessToken });
     })
   );
 });

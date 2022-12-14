@@ -4,11 +4,11 @@ const router = express.Router();
 const userController = require("../controllers/userController");
 const verifyJWT = require("../middleware/verifyJWT");
 
-router.use(verifyJWT);
+// router.use(verifyJWT);
 
-router.get("/", userController.getAllUser);
+router.get("/", verifyJWT, userController.getAllUser);
 router.post("/", userController.createNewUser);
-router.patch("/", userController.updateUser);
-router.delete("/", userController.deleteUser);
+router.patch("/", verifyJWT, userController.updateUser);
+router.delete("/", verifyJWT, userController.deleteUser);
 
 module.exports = router;
