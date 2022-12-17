@@ -17,6 +17,12 @@ app.use(cors(corsOption));
 app.use(logger);
 
 app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+app.enable("trust proxy");
 
 app.use(cookieParser());
 
