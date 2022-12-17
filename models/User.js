@@ -22,6 +22,7 @@ const schema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    refresh:[String]
   },
   {
     timestamps: true,
