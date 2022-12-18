@@ -57,7 +57,6 @@ foundUser.refresh = [...newRefreshTokenArray,newRefreshToken]
   res.cookie("jwt", newRefreshToken, {
     httpOnly: true,
     secure: true,
-    signed:true,
     sameSite: "none",
     maxAge: 7 * 24 * 60 * 1000,
   });
@@ -145,7 +144,6 @@ const refresh = asyncHandler(async (req, res) => {
   res.cookie("jwt", refreshToken, {
     httpOnly: true,
     secure: true,
-    signed:true,
     sameSite: "none",
     maxAge: 7 * 24 * 60 * 1000,
   });
