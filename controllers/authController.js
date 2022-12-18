@@ -160,6 +160,7 @@ const refresh = asyncHandler(async (req, res) => {
 const logout = asyncHandler(async (req, res) => {
   const cookies = req.cookies;
   const refreshToken = cookies?.jwt
+  console.log(`Cookie logout ${refreshToken}`)
 
   if (!refreshToken) return res.sendStatus(204);
 

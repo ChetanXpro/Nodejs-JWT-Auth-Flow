@@ -17,6 +17,7 @@ app.use(cors(corsOption));
 app.use(logger);
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(
   express.urlencoded({
     extended: true,
@@ -24,7 +25,7 @@ app.use(
 );
 app.enable("trust proxy",1);
 
-app.use(cookieParser());
+
 
 app.use("/", express.static(path.join(__dirname, "/public")));
 
