@@ -39,7 +39,7 @@ const login = asyncHandler(async (req, res) => {
       username: foundUser.username,
     },
     process.env.REFRESH_TOKEN_SECRET,
-    { expiresIn: "15s" }
+    { expiresIn: "15h" }
   );
 
   let newRefreshTokenArray = !cookies?.jwt ? foundUser.refresh : foundUser.refresh.filter(r=> r !== cookies?.jwt)
@@ -133,7 +133,7 @@ const refresh = asyncHandler(async (req, res) => {
       username: decodedFoundUser.username,
     },
     process.env.REFRESH_TOKEN_SECRET,
-    { expiresIn: "15s" }
+    { expiresIn: "15h" }
   );
 
   decodedFoundUser.refresh = [...newRefreshToken,refreshToken]
